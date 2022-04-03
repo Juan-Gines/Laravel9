@@ -36,6 +36,13 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        //añadimos el route para cambiar por defecto los verbos en ingles cuando hacemos un Route::resource de un modelo
+
+        Route::resourceVerbs([
+            'create'=>'crear',
+            'edit'=>'editar',
+        ]);
     }
 
     /**
