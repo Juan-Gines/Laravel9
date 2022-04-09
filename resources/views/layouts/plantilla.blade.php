@@ -7,9 +7,15 @@
     <title>@yield('title')</title>
     {{-- favicom --}}
     {{-- estilos --}}
+    <style>
+        .active{
+            color: brown;
+            font-size: bold;
+        }
+    </style>
 </head>
 <body>
-    {{-- header --}}
+    @include('layouts.partials.header')
     {{-- nav --}}
     
     @yield('content')

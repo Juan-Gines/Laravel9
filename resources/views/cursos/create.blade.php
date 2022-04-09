@@ -6,10 +6,7 @@
 @section('content')
     <h1>En esta página podrás crear cursos</h1>
     <form action="{{route('cursos.store')}}" method="POST">
-        @csrf
-        <input type="hidden" name="nombre" id="id" value="1">        
-        <input type="hidden" name="dia" id="created_at" value="1970-01-01">        
-        <input type="hidden" name="precio" id="gfgfgf" value="1970-01-01">        
+        @csrf         
         <label for="name">
             Nombre:
             <br>

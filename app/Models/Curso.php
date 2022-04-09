@@ -20,5 +20,10 @@ class Curso extends Model
         'categoria'
     ]; */
 
-    protected $guarded=['created_at','updated_at','id'];
+    protected $guarded=[];
+
+    public function getRouteKeyName()
+    {
+        return 'slug' ;
+    }
 }

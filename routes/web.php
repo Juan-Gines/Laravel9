@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use PhpParser\Builder\Function_;
+
+
+use Monolog\Handler\SendGridHandler;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +20,7 @@ use PhpParser\Builder\Function_;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 /* Route::get('/', function () {
     return view('welcome');
@@ -63,3 +67,13 @@ Route::resource('cursos',CursoController::class);
 //si quisieramos modificar el nombre de nuestras rutas por otro(asignaturas)nos daría problemas los name y los parametros por defecto y lo deberiamos arreglar así
 
 //Route::resource('asignaturas',CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos');
+
+
+//ruta que no interactua con nuestra base de datos, o pagina estatica
+Route::view('nosotros','nosotros')->name('nosotros');
+
+//ruta para enviar correos electronicos
+
+Route::get('contactanos',[ContactanosController::class,'index'])->name('contactanos.index');
+
+Route::post('contactanos',[ContactanosController::class,'store'])->name('contactanos.store');
